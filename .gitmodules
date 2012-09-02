@@ -1,0 +1,4 @@
+[submodule "custom/tomorrow-theme"]
+    path = custom/tomorrow-theme
+    url = https://github.com/chriskempson/tomorrow-theme
+    ignore = untracked
