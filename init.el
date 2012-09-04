@@ -55,14 +55,23 @@
        (goto-char (point-max))
        (eval-print-last-sexp)))))
 (setq my-packages (append '(
+                            auto-complete
                             clojure-mode
                             coffee-mode
                             el-get
                             evil
+                            markdown-mode
                             paredit
                             rainbow-delimiters
                             )))
 (el-get 'sync my-packages)
+
+;;;
+;;; misc
+;;;
+(require 'auto-complete)
+(global-auto-complete-mode t)
+(ac-set-trigger-key "TAB")
 
 ;;;
 ;;; evil
