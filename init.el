@@ -30,6 +30,12 @@
 (windmove-default-keybindings 'meta)
 (setq windmove-wrap-around t)
 
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ; one line at a time
+(setq mouse-wheel-progressive-speed nil) ; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't)       ; scroll window under mouse
+(setq scroll-step 1)                     ; keyboard scroll one line at a time
+(setq auto-window-vscroll nil)
+
 ;;;
 ;;; package
 ;;;
@@ -55,6 +61,7 @@
        (goto-char (point-max))
        (eval-print-last-sexp)))))
 (setq my-packages (append '(
+                            ace-jump-mode
                             auto-complete
                             clojure-mode
                             coffee-mode
@@ -69,9 +76,12 @@
 ;;;
 ;;; misc
 ;;;
+(require 'auto-complete-config)
+(ac-config-default)
 (require 'auto-complete)
 (global-auto-complete-mode t)
 (ac-set-trigger-key "TAB")
+(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-mode)
 
 ;;;
 ;;; evil
